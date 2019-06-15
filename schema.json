@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ninurta config",
+  "description": "A config file describing Ninurta sites",
+  "type": "object",
+  "properties": {
+    "ports": {
+      "description": "The ports to use for inbound connections",
+      "type": "object",
+      "properties": {
+        "http": {
+          "description": "The port to use for unencrypted traffic",
+          "type": "integer"
+        },
+        "https": {
+          "description": "The port to use for encrypted traffic",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "http",
+        "https"
+      ]
+    },
+    "sites": {
+      "description": "The sites to host",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/site"
+      }
+    }
+  },
+  "definitions": {
+    "site": {
+      "type": "object",
+      "description": "The config for a particular site",
+      "properties": {
+        "path": {
+          "description": "The relative path to the directory containing the files to be served",
+          "type": "string"
+        },
+        "domain": {
+          "description": "The main domain for the site",
+          "type": "string",
+          "examples": [
+            "www.example.com"
+          ]
+        },
+        "redirects": {
+          "description": "A set of domains to redirect back to the main domain",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            [
+              "example.com",
+              "www.example.biz"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "ports",
+    "sites"
+  ]
+}
