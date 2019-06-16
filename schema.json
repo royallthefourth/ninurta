@@ -16,11 +16,7 @@
           "description": "The port to use for encrypted traffic",
           "type": "integer"
         }
-      },
-      "required": [
-        "http",
-        "https"
-      ]
+      }
     },
     "sites": {
       "description": "The sites to host",
