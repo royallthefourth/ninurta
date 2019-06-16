@@ -41,7 +41,8 @@ func main() {
 	// TODO if only http is set, serve http
 	// TODO if only https is set, serve https
 	// TODO if http and https are set, redirect to https
-	// TODO look for certs and generate any that are missing, see https://kalyanchakravarthy.net/blog/https-server-with-go-letsencrypt/
+	// TODO look for certs and check to see which ones we have available
+	// TODO generate any certs that are missing, see https://kalyanchakravarthy.net/blog/https-server-with-go-letsencrypt/
 	// TODO load certs, see https://kalyanchakravarthy.net/blog/tls-server-in-go/
 
 	httpMux := http.NewServeMux()
