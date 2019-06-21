@@ -74,9 +74,11 @@ type ninurtaConfig struct {
 		Http	uint16	``
 		Https	uint16
 	}
-	Sites	[]struct{
-		Path	string
-		Domain	string
-		Redirects	[]string
-	}
+	Sites	[]site
+}
+
+type site struct{
+	Path	string
+	Domain	string
+	Redirects	[]string
 }
